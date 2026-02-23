@@ -1,1 +1,440 @@
+1.1. parsisiųstas kodas ir pasileistas ant visual studio code
+1.2. pasileidau kelis žaidimus iš kodo
+1.3. debugginom
+1.4. sukurtas paieskos zaidimas maze 
 
+copilot uklausos:
+
+User: write a simple python hwllo world program
+
+GitHub Copilot: Enable Claude Haiku 4.5 for all clients
+[object Object]
+
+User: @agent Enable: "Enable Claude Haiku 4.5 for all clients"
+
+GitHub Copilot: Using "Create File"
+
+Here's a simple Python hello world program:
+
+```python
+print("Hello, World!")
+```
+
+To use this, create a file named `hello_world.py` with the code above, then run it with:
+```
+python hello_world.py
+```
+
+Or if you'd like me to create it in your workspace, I can do that once you have a workspace open.
+
+User: create it in the vs code
+
+GitHub Copilot: 
+
+User: Continue with #new workspace setup
+
+GitHub Copilot: Created [](file:///c%3A/Users/anugn/Desktop/uni/6%20semestras/Di/hello_world.py)
+
+Done! I've created hello_world.py in your workspace with the simple "Hello, World!" program. You can now see it in VS Code and run it with `python hello_world.py`.
+
+Made changes.
+
+User: how to run the program
+
+GitHub Copilot: You can run the program in several ways:
+
+1. **In the VS Code Terminal:**
+   - Open the terminal (Ctrl + `)
+   - Type: `python hello_world.py`
+   - Press Enter
+
+2. **Using Command Prompt:**
+   - Open Command Prompt
+   - Navigate to your folder: `cd "c:\Users\anugn\Desktop\uni\6 semestras\Di"`
+   - Run: `python hello_world.py`
+
+3. **Right-click in VS Code:**
+   - Right-click on the file in the explorer
+   - Select "Run Python File in Terminal"
+
+The output should be:
+```
+Hello, World!
+```
+
+User: why isint there a run button anywhere?
+
+GitHub Copilot: VS Code doesn't have a built-in run button for Python by default. Here are your options:
+
+1. **Install the Python Extension:**
+   - Go to Extensions (Ctrl + Shift + X)
+   - Search for "Python"
+   - Install the official "Python" extension by Microsoft
+   - This adds a "Run" button (play icon) in the top-right corner
+
+2. **Install Code Runner Extension:**
+   - Go to Extensions
+   - Search for "Code Runner"
+   - Install it
+   - This adds a run button that works for many languages
+
+3. **Use the Terminal** (no extension needed):
+   - Press Ctrl + ` to open the terminal
+   - Type `python hello_world.py`
+
+Once you install the Python extension, you'll see a play button in the top-right of the editor that lets you run the file directly. I'd recommend installing the Python extension since you're working with Python files.
+
+User: do ypu see the error that i got?
+
+GitHub Copilot: I don't see an error message in the information provided. Could you please share the error you're getting? You can either:
+
+1. **Copy-paste the error from the terminal** into the chat
+2. **Take a screenshot** and describe what you see
+3. **Tell me what happened** when you tried to run the program
+
+This will help me diagnose the issue and fix it for you.
+
+User: PS C:\Users\anugn\Desktop\uni\6 semestras\Di> & C:\Users\anugn\AppData\Local\Programs\Python\Python312\python.exe "c:/Users/anugn/Desktop/uni/6 semestras/Di/Artificial-Intelligence-Course-main/game_TicTacToe.py"
+Traceback (most recent call last):
+  File "c:\Users\anugn\Desktop\uni\6 semestras\Di\Artificial-Intelligence-Course-main\game_TicTacToe.py", line 2, in <module>
+    from games import *
+  File "c:\Users\anugn\Desktop\uni\6 semestras\Di\Artificial-Intelligence-Course-main\games.py", line 8, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+PS C:\Users\anugn\Desktop\uni\6 semestras\Di> 
+
+GitHub Copilot: The error shows that `numpy` is not installed. I'll install it for you: 
+
+Ran terminal command: python -m pip install numpy
+
+Configuring a Python Environment
+Completed with input: {
+  "resourcePath": "c:\\Users\\anugn\\Desktop\\uni\\6 semestras\\Di"
+}
+
+Creating a Virtual Environment
+Completed with input: {
+  "resourcePath": "c:\\Users\\anugn\\Desktop\\uni\\6 semestras\\Di"
+}
+
+Installing numpy in Python 3.12 (64-bit)
+Completed with input: {
+  "packageList": [
+    "numpy"
+  ],
+  "resourcePath": "c:\\Users\\anugn\\Desktop\\uni\\6 semestras\\Di"
+}
+
+Done! I've installed numpy. Now try running your program again. If you get more missing module errors, let me know and I'll install those dependencies too.
+
+User: PS C:\Users\anugn\Desktop\uni\6 semestras\Di> & "C:\Users\anugn\Desktop\uni\6 semestras\Di\.venv\Scripts\python.exe" "c:/Users/anugn/Desktop/uni/6 semestras/Di/Artificial-Intelligence-Course-main/EightPuzzle.py"
+['UP', 'LEFT', 'UP', 'LEFT', 'DOWN', 'RIGHT', 'RIGHT', 'DOWN']
+PS C:\Users\anugn\Desktop\uni\6 semestras\Di> UP
+UP : The term 'UP' is not recognized as the name of a cmdlet, function, script file, or operable pro
+gram. Check the spelling of the name, or if a path was included, verify that the path is correct and 
+ try again.
+At line:1 char:1
++ UP
++ ~~
+    + CategoryInfo          : ObjectNotFound: (UP:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+    what kind off problem is this
+
+GitHub Copilot: 
+
+User: @agent Try Again
+
+GitHub Copilot: Short answer: PowerShell sees `UP` as a command because you typed it after the Python script finished — it’s not a PowerShell command.
+
+- **Cause:** The script printed `['UP', ...]` then exited, so typing `UP` afterwards runs a shell command (`UP`) which doesn't exist.
+- **If the script expects interactive input:** run it and type `UP` while the script is still running (at its input prompt). Example:
+  - `& "C:\Users\anugn\Desktop\uni\6 semestras\Di\.venv\Scripts\python.exe" "c:/Users/anugn/Desktop/uni/6 semestras/Di/Artificial-Intelligence-Course-main/EightPuzzle.py"`
+  - then type `UP` and press Enter when the script prompts.
+- **To send one input non-interactively (pipe):**
+  - `echo "UP" | & "C:\Users\anugn\Desktop\uni\6 semestras\Di\.venv\Scripts\python.exe" "c:/Users/anugn/Desktop/uni/6 semestras/Di/Artificial-Intelligence-Course-main/EightPuzzle.py"`
+- **Next step:** I can open and check EightPuzzle.py to see how it reads input and modify it to stay interactive or accept commands — want me to do that?
+
+User: what is the point of this game
+
+GitHub Copilot: **Purpose:**  
+- **games.py**: a small educational framework for adversarial/stochastic game search — implements Minimax, Expectimax, Alpha‑Beta, and cutoff search plus example game classes to demonstrate them.
+
+**What it provides:**  
+- **Algorithms:** `minmax_decision`, `expect_minmax`, `alpha_beta_search`, `alpha_beta_cutoff_search`.  
+- **Players:** `query_player` (human input), `random_player`, `alpha_beta_player`, etc.  
+- **Game classes:** base `Game` and `StochasticGame`, plus examples: `TicTacToe`, `ConnectFour`, `Gomoku`, `Backgammon`, etc.  
+- **State types:** `GameState` and `StochasticGameState` namedtuples for representing turns, utility, board, moves.
+
+**Why use it:**  
+- Learn and test adversarial search techniques; compare agents (human, random, minimax, alpha‑beta); experiment with heuristics and cutoff evaluation functions; see how deterministic and chance nodes differ (Backgammon).
+
+**Quick usage example:** run a human vs AI TicTacToe from Python:
+```python
+from games import TicTacToe, query_player, alpha_beta_player
+game = TicTacToe()
+game.play_game(alpha_beta_player, query_player)   # AI plays X, human plays O
+```
+
+**Notes on interaction:**  
+- `query_player` calls `input()` and expects a legal move (e.g., `(1, 1)`); if you type commands after the script exits, the shell will treat them as shell commands (which caused your `UP` error).  
+- `numpy` is used for +/- infinity values in the search code.
+
+Want me to show where the human input is read in `games.py` or modify the code to accept commands non‑interactively?
+
+User: no, the eugthpussle game
+
+GitHub Copilot: I'll open `EightPuzzle.py` to inspect its code and explain the game's purpose and usage.
+
+Read [](file:///c%3A/Users/anugn/Desktop/uni/6%20semestras/Di/Artificial-Intelligence-Course-main/EightPuzzle.py)
+
+Progress: I inspected EightPuzzle.py. Next I'll explain what the Eight Puzzle program does and how to run/use it.
+
+- **Purpose:** EightPuzzle.py sets up an 8-puzzle problem instance (start state (2,4,3,1,5,6,7,8,0)), runs a search algorithm to solve it, and prints the sequence of moves (the solution). It uses the problem/search framework in `search.py` (imports `from search import *`).
+
+- **What it runs:** By default it calls `breadth_first_graph_search(puzzle).solution()` to find a solution path. A commented alternative shows using best-first search with a heuristic (`puzzle.h(n)`).
+
+- **Output:** `solution` is a list of actions (moves) from the initial state to the goal; the program prints that list.
+
+- **How to run:** From the repository folder run (adjust Python path as needed):
+```powershell
+& "C:\path\to\python.exe" "c:/Users/anugn/Desktop/uni/6 semestras/Di/Artificial-Intelligence-Course-main/EightPuzzle.py"
+```
+or in VS Code terminal:
+```powershell
+python EightPuzzle.py
+```
+
+- **If you want interaction or different start states:** edit the `puzzle = EightPuzzle(...)` line to change the initial state, or swap in the commented `best_first_graph_search` line for a heuristic search.
+
+Do you want me to open `search.py` to explain the search functions used or run EightPuzzle.py here and show its output?
+
+User: PS C:\Users\anugn\Desktop\uni\6 semestras\Di> & "C:\Users\anugn\Desktop\uni\6 semestras\Di\.venv\Scripts\python.exe" "c:/Users/anugn/Desktop/uni/6 semestras/Di/Artificial-Intelligence-Course-main/NQueensProblem.py"
+[1, 3, 0, 2]
+Traceback (most recent call last):
+  File "c:\Users\anugn\Desktop\uni\6 semestras\Di\Artificial-Intelligence-Course-main\NQueensProblem.py", line 18, in <module>
+    import matplotlib.pyplot as plt
+ModuleNotFoundError: No module named 'matplotlib'
+
+GitHub Copilot: I'll add a quick TODO and then install `matplotlib` into your project virtualenv so `NQueensProblem.py` can run.
+
+Created 1 todo
+
+Configuring a Python Environment
+Completed with input: {
+  "resourcePath": "c:\\Users\\anugn\\Desktop\\uni\\6 semestras\\Di"
+}
+
+
+Completed with input: {
+  "resourcePath": "c:\\Users\\anugn\\Desktop\\uni\\6 semestras\\Di"
+}
+
+Installing matplotlib in Python 3.12 (64-bit)
+Completed with input: {
+  "packageList": [
+    "matplotlib"
+  ],
+  "resourcePath": "c:\\Users\\anugn\\Desktop\\uni\\6 semestras\\Di"
+}
+
+Completed: *Install matplotlib* (1/1)
+
+Done — `matplotlib` is installed in your environment. Try running:
+
+```powershell
+& "C:\Users\anugn\Desktop\uni\6 semestras\Di\.venv\Scripts\python.exe" "c:/Users/anugn/Desktop/uni/6 semestras/Di/Artificial-Intelligence-Course-main/NQueensProblem.py"
+```
+
+If another ModuleNotFoundError appears, tell me the missing package and I’ll install it.
+
+User: what is this game about
+
+GitHub Copilot: I'll open `NQueensProblem.py` to explain what the program does and how it works.
+
+Read [](file:///c%3A/Users/anugn/Desktop/uni/6%20semestras/Di/Artificial-Intelligence-Course-main/NQueensProblem.py)
+
+**Summary:**  
+- **What:** The NQueensProblem.py program solves the N‑Queens puzzle: place N queens on an N×N chessboard so no two queens attack each other (no same row, column, or diagonal).  
+- **Representation:** The solver returns a list where the index is the row and the value is the column of the queen (e.g. `[1, 3, 0, 2]` for 4 queens).  
+- **How it solves:** It creates an `NQueensProblem` instance and runs a search (`best_first_graph_search` by default, using `nq_problem.h(n)` as a heuristic). Alternative search calls are commented in the file.  
+- **Visualization:** `plot_solution()` draws a simple grid with `Q` marks (always run). `plot_NQueens()` draws a nicer board using an image and only runs when `number_of_queens == 8`. The plotting code requires `matplotlib` and `PIL` (Pillow).  
+- **Where to change N:** Edit the `number_of_queens` variable near the top of NQueensProblem.py. Note very large `N` may take long to solve (comment says >30 min for 30).  
+
+Quick commands to run from the repository folder:
+```powershell
+python Artificial-Intelligence-Course-main\NQueensProblem.py
+```
+
+If you want, I can:
+- Run the script here and show the output, or
+- Change it to always show the graphical board, or
+- Explain the internal `NQueensProblem` implementation in `search.py`. Which would you prefer?
+
+User: now that you see the NQueensProblem ame and the EightPuzzle gaame, create a similar game with the same architecture
+
+GitHub Copilot: I'll read `search.py` to match its Problem/Node API before adding a new game. I'll fetch the file now.
+
+Read [](file:///c%3A/Users/anugn/Desktop/uni/6%20semestras/Di/Artificial-Intelligence-Course-main/search.py#1-1), lines 1 to 400
+
+I'm going to add a new `MazeProblem.py` that follows the repo's `Problem` API: creates a maze Problem subclass, runs searches, and shows a simple plot. I'll add it now.
+
+Created 3 todos
+
+Created [](file:///c%3A/Users/anugn/Desktop/uni/6%20semestras/Di/Artificial-Intelligence-Course-main/MazeProblem.py)
+
+Completed: *Create MazeProblem file* (1/3)
+
+Done — I added `MazeProblem.py` to your project. It defines a `MazeProblem` subclass matching the `Problem` API, runs BFS and heuristic best-first search, prints solutions, and shows a simple plot of the path.
+
+Next steps you might want:
+- Run it: 
+```powershell
+python Artificial-Intelligence-Course-main\MazeProblem.py
+```
+- Edit the `simple_maze` variable to try different layouts.
+Want me to open the file or run it now and show its output?
+
+Made changes.
+
+User: can you explain the eightpuzzle and nqueens games again? shoert and simpple
+
+GitHub Copilot: **Eight Puzzle**
+- **Goal:** Slide tiles on a 3×3 board to reach the ordered goal (1..8 with the blank last).  
+- **State:** A tuple of 9 numbers (0 = blank), e.g. `(2,4,3,1,5,6,7,8,0)`.  
+- **Moves:** Slide the blank `UP`, `DOWN`, `LEFT`, or `RIGHT`.  
+- **Solved by:** Search (BFS, A*, etc.) that returns a sequence of moves from start to goal.  
+- **Output example:** `['UP','LEFT','DOWN',...]` (sequence of actions).
+
+**N‑Queens**
+- **Goal:** Place N queens on an N×N chessboard so no two attack each other (no same row, column, or diagonal).  
+- **State:** A list where index = row and value = column, e.g. `[1,3,0,2]` for 4 queens.  
+- **Moves:** Place a queen in a row (or adjust placements while searching).  
+- **Solved by:** Search or CSP methods that produce a valid placement for all N rows.  
+- **Output example:** `[2,0,3,1,...]` (one column per row).
+
+
+
+
+Kodas sukurtos programos:
+from search import Problem, Node, breadth_first_graph_search, best_first_graph_search
+import numpy as np
+import matplotlib.pyplot as plt
+
+class MazeProblem(Problem):
+    """A simple grid maze problem.
+
+    State is a tuple (row, col). Grid is a list of strings where:
+      '#': wall, '.': free, 'S': start, 'G': goal
+    """
+    def __init__(self, grid):
+        self.grid = [list(row) for row in grid]
+        rows = len(self.grid)
+        cols = len(self.grid[0])
+        start = None
+        goal = None
+        for r in range(rows):
+            for c in range(cols):
+                if self.grid[r][c] == 'S':
+                    start = (r, c)
+                elif self.grid[r][c] == 'G':
+                    goal = (r, c)
+        super().__init__(start, goal)
+        self.rows = rows
+        self.cols = cols
+
+    def in_bounds(self, pos):
+        r, c = pos
+        return 0 <= r < self.rows and 0 <= c < self.cols
+
+    def passable(self, pos):
+        r, c = pos
+        return self.grid[r][c] != '#'
+
+    def actions(self, state):
+        r, c = state
+        candidates = [(-1, 0, 'UP'), (1, 0, 'DOWN'), (0, -1, 'LEFT'), (0, 1, 'RIGHT')]
+        results = []
+        for dr, dc, name in candidates:
+            nr, nc = r + dr, c + dc
+            if self.in_bounds((nr, nc)) and self.passable((nr, nc)):
+                results.append(name)
+        return results
+
+    def result(self, state, action):
+        r, c = state
+        if action == 'UP':
+            return (r - 1, c)
+        if action == 'DOWN':
+            return (r + 1, c)
+        if action == 'LEFT':
+            return (r, c - 1)
+        if action == 'RIGHT':
+            return (r, c + 1)
+        return state
+
+    def goal_test(self, state):
+        return state == self.goal
+
+    def path_cost(self, c, state1, action, state2):
+        return c + 1
+
+    def h(self, node):
+        # Manhattan distance heuristic
+        (r, c) = node.state
+        (gr, gc) = self.goal
+        return abs(r - gr) + abs(c - gc)
+
+
+def plot_maze(grid, path=None):
+    grid_arr = np.array([[1 if ch == '#' else 0 for ch in row] for row in grid])
+    fig, ax = plt.subplots()
+    ax.imshow(grid_arr, cmap='gray_r')
+    ax.set_xticks([])
+    ax.set_yticks([])
+    if path:
+        rows = [p[0] for p in path]
+        cols = [p[1] for p in path]
+        ax.plot(cols, rows, marker='o', color='red')
+    plt.gca().invert_yaxis()
+    plt.show()
+
+
+if __name__ == '__main__':
+    # Example maze (S = start, G = goal, # = wall, . = free)
+    simple_maze = [
+        "##########",
+        "#S...#...#",
+        "#.#.#.#..#",
+        "#.#.#.##.#",
+        "#...#....#",
+        "###.###..#",
+        "#....#...#",
+        "#.##.#.#G#",
+        "#........#",
+        "##########",
+    ]
+
+    problem = MazeProblem(simple_maze)
+
+    # Breadth-first (shortest path in unweighted grid)
+    node = breadth_first_graph_search(problem)
+    if node:
+        solution = node.solution()
+        path = [n.state for n in node.path()]
+        print('BFS solution (actions):', solution)
+        print('BFS path (coords):', path)
+        plot_maze(simple_maze, path)
+    else:
+        print('No BFS solution found')
+
+    # A* / best-first with Manhattan heuristic
+    node2 = best_first_graph_search(problem, lambda n: problem.h(n))
+    if node2:
+        solution2 = node2.solution()
+        path2 = [n.state for n in node2.path()]
+        print('Heuristic best-first solution (actions):', solution2)
+        print('Heuristic path (coords):', path2)
+        plot_maze(simple_maze, path2)
+    else:
+        print('No heuristic solution found')
